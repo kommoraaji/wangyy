@@ -6,6 +6,7 @@ import Hotsong from '../views/hotsong'
 import Search from '../views/search'
 
 import { Route , Switch , NavLink , Redirect } from 'react-router-dom'
+import { KeepAlive } from 'react-keep-alive'
 
 class Home extends React.Component{
   constructor(){

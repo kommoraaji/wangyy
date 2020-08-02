@@ -21,7 +21,7 @@ class Recomment extends React.Component{
       }
     })
     newsong().then(res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.code == 200){
         this.setState({
           newsongs:res.data.result

@@ -14,7 +14,7 @@ class Hotsong extends React.Component{
 
   componentDidMount(){
     hotsong().then(res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.code == 200){
         this.setState({
           hotlist:res.data.result

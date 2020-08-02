@@ -21,6 +21,6 @@ export function gethotsearch(){
 }
 
 //搜索
-export function getsearch(){
-  return http.get('/search')
+export function getsearch(data){
+  return http.get('/search',data)
 }

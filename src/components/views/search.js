@@ -8,8 +8,7 @@ class Search extends React.Component{
     super()
     this.state={
       searchlist:[],
-      inputval:'',
-      keywords:''
+      keyword:''
     }
   }
   componentDidMount(){
@@ -22,27 +21,33 @@ class Search extends React.Component{
       }
     })
   }
+
   change(e){
-    console.log(e.target.value)
     this.setState({
-      inputval:e.target.value
+      keyword : e.target.value
+    })
+  }
+
+  setval(e){
+    this.setState({
+      keyword : e
     })
   }
   render(){
-    const { searchlist } = this.state
+    const { searchlist , keyword } = this.state
     return(
       <div>
         <div className="search">
-          <input value={this.state.inputval} onChange={this.change.bind(this)} type="text" placeholder="搜索歌曲、歌手、专辑"/>
+          <input value={this.state.keyword} onChange={this.change.bind(this)} type="text" placeholder="搜索歌曲、歌手、专辑"/>
         </div>
-        <div className="hotsearch">
+        { keyword == '' ? <div className="hotsearch" >
           <h2>热门搜索</h2>
           {
             searchlist.map(item=>{
-              return <span key={item.first} className='hotlist'>{item.first}</span>
+              return <span onClick={this.setval.bind(this,item.first)} key={item.first} className='hotlist'>{item.first}</span>
             })
           }
-        </div>
+        </div> : '' }
       </div>
     )
   }
