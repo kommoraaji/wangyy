@@ -1,0 +1,24 @@
+.notice {
+  width: 100vw;
+  height: 2.9rem;
+  background: url('../images//hot_bg.jpg');
+}
+
+.list {
+  display: flex;
+  height: 55px;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.listleft {
+  width: 40px;
+  text-align: center;
+}
+.listcenter {
+  flex: 1;
+}
+.listright {
+  width: 42px;
+  text-align: center;
+}

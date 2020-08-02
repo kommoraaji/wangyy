@@ -1,0 +1,22 @@
+.slogo {
+  width: 100vw;
+  height: 70px;
+}
+.rod {
+  position: absolute;
+  left: 46%;
+  top: 0;
+}
+.rod img {
+  width: 95px;
+}
+.playing {
+  width: 296px;
+  height: 296px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+}
+.playing img {
+  width: 100%;
+}

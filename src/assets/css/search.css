@@ -1,0 +1,35 @@
+.search {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.search input{
+  width: 95%;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #f1f1f1;
+  text-indent: 2em;
+}
+.search input::placeholder{
+  color: #ccc;
+  font-size: 14px;
+}
+
+.hotsearch {
+  padding: 12px 10px 0 10px;
+}
+.hotsearch h2 {
+  font-size: 12px;
+  color: rgb(109, 109, 109);
+  margin-bottom: 10px;
+}
+.hotlist {
+  display: inline-block;
+  padding: 6px 15px;
+  border: 1px solid #e0e0e0;
+  font-size: 13px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
