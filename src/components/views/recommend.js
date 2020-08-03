@@ -12,9 +12,9 @@ class Recomment extends React.Component{
     }
   }
   componentDidMount(){
-    getsonglist().then(res=>{
+    getsonglist({limit:6}).then(res=>{
       // console.log(res)
-      if(res.data.code == 200){
+      if(res.data.code === 200){
         this.setState({
           songlist:res.data.result
         })
@@ -22,7 +22,7 @@ class Recomment extends React.Component{
     })
     newsong().then(res=>{
       // console.log(res)
-      if(res.data.code == 200){
+      if(res.data.code === 200){
         this.setState({
           newsongs:res.data.result
         })

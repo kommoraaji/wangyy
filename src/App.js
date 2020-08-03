@@ -3,7 +3,7 @@ import './App.css';
 import Home from './components/pages/home'
 import Play from './components/pages/play'
 
-import { Route , Switch , NavLink , Redirect } from 'react-router-dom'
+import { Route , Switch , Redirect } from 'react-router-dom'
 
 function App() {
   return (

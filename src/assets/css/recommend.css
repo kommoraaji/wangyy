@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  height: 340px;
+  /* height: 340px; */
   overflow: hidden;
   margin-bottom: 20px;
 }
@@ -17,7 +17,7 @@
   text-align: center;
   min-width: 33%;
   max-width: 33%;
-  height: 165px;
+  /* height: 165px; */
   margin-bottom: 10px;
 }
 .songlist img{

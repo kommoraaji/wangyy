@@ -15,7 +15,7 @@ class Hotsong extends React.Component{
   componentDidMount(){
     hotsong().then(res=>{
       // console.log(res)
-      if(res.data.code == 200){
+      if(res.data.code === 200){
         this.setState({
           hotlist:res.data.result
         })
@@ -28,7 +28,7 @@ class Hotsong extends React.Component{
     this.props.history.push('/play')
   }
   render(){
-    const { hotlist } = this.state
+    // const { hotlist } = this.state
     return(
       <div>
         <div className="notice"></div>
