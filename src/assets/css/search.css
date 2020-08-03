@@ -5,20 +5,33 @@
   line-height: 60px;
   border-bottom: 1px solid #f1f1f1;
 }
-.clearinput{
+
+.clearinput {
+  width: 14px;
+  height: 14px;
   position: absolute;
   right: 20px;
   top: 50%;
-  transform: translate(0,-50%);
+  transform: translate(0, -50%);
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background: rgb(187, 187, 187);
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.search input{
+
+.search input {
   width: 95%;
   height: 30px;
   border-radius: 30px;
   background-color: #f1f1f1;
   text-indent: 2em;
 }
-.search input::placeholder{
+
+.search input::placeholder {
   color: #ccc;
   font-size: 14px;
 }
@@ -26,11 +39,13 @@
 .hotsearch {
   padding: 12px 10px 0 10px;
 }
+
 .hotsearch h2 {
   font-size: 12px;
   color: rgb(109, 109, 109);
   margin-bottom: 10px;
 }
+
 .hotlist {
   display: inline-block;
   padding: 6px 14px;
@@ -40,27 +55,32 @@
   margin-bottom: 10px;
   margin-right: 8px;
 }
+
 .list {
   padding: 0 10px;
   position: relative;
 }
+
 .list .listtit {
   font-size: 12px;
   margin-top: 2px;
   color: rgb(99, 95, 95);
 }
-.listcenter h3{
+
+.listcenter h3 {
   width: 70%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.listcenter .listtit{
+
+.listcenter .listtit {
   width: 80%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .listright {
   position: absolute;
   right: 5px;

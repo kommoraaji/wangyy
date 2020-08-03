@@ -12,8 +12,12 @@
 }
 
 .listleft {
-  width: 40px;
+  width: 30px;
   text-align: center;
+  letter-spacing: 1px;
+}
+.listleft span:nth-of-type(-n+3){
+  color: #df3436;
 }
 .listcenter {
   flex: 1;

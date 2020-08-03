@@ -1,9 +1,10 @@
-.recommend{
+.recommend {
   width: 100vw;
   height: 55px;
   line-height: 60px;
   padding-left: 10px;
 }
+
 .songs {
   display: flex;
   flex-wrap: wrap;
@@ -12,6 +13,7 @@
   overflow: hidden;
   margin-bottom: 20px;
 }
+
 .songlist {
   flex: 1;
   text-align: center;
@@ -20,10 +22,12 @@
   /* height: 165px; */
   margin-bottom: 10px;
 }
-.songlist img{
+
+.songlist img {
   width: 100%;
 }
-.songlist .name{
+
+.songlist .name {
   padding: 5px;
   font-size: 13px;
   text-align: left;
@@ -33,9 +37,11 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+
 .list {
   padding: 0 10px;
 }
+
 .list .listtit {
   font-size: 12px;
   margin-top: 2px;

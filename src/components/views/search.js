@@ -1,107 +1,113 @@
 import React from 'react'
 import '../../assets/css/search.css'
 
-import { gethotsearch , getsearch } from '../../utill/axios/'
+import { gethotsearch, getsearch } from '../../utill/axios/'
 
-class Search extends React.Component{
-  constructor(){
+class Search extends React.Component {
+  constructor() {
     super()
-    this.state={
-      hotitem:[],
-      keyword:'',
-      songlist:[]
+    this.state = {
+      hotitem: [],
+      keyword: '',
+      songlist: []
     }
   }
-  componentDidMount(){
-    gethotsearch().then(res=>{
+  componentDidMount() {
+    gethotsearch().then(res => {
       // console.log(res)
-      if(res.data.code === 200){
+      if (res.data.code === 200) {
         this.setState({
-          hotitem:res.data.result.hots
+          hotitem: res.data.result.hots
         })
       }
     })
   }
 
-  change(e){
+
+  change(e) {
     this.setState({
-      keyword : e.target.value
+      keyword: e.target.value
     })
-    if(e.target.value === ''){
+    if (e.target.value === '') {
       this.setState({
-        songlist:[]
+        songlist: []
       })
     }
   }
 
-  keydown=(e)=>{
+  //点击回车进行搜索
+  keydown = (e) => {
     // console.log(e.keyCode)
-    if(e.keyCode === 13){
+    if (e.keyCode === 13) {
       // console.log(this.state.keyword)
-      getsearch({keywords:this.state.keyword}).then(res=>{
+      getsearch({ keywords: this.state.keyword }).then(res => {
         // console.log(res)
-        if(res.data.code === 200){
+        if (res.data.code === 200) {
           this.setState({
-            songlist:res.data.result.songs
+            songlist: res.data.result.songs
           })
         }
       })
     }
   }
 
-  setval(e){
+  //获取热门搜索词
+  setval(e) {
     this.setState({
-      keyword : e
-    },()=>{
-      getsearch({keywords:this.state.keyword}).then(res=>{
+      keyword: e
+    }, () => {
+      getsearch({ keywords: this.state.keyword }).then(res => {
         // console.log(res)
-        if(res.data.code === 200){
+        if (res.data.code === 200) {
           this.setState({
-            songlist:res.data.result.songs
+            songlist: res.data.result.songs
           })
         }
       })
     })
   }
 
-  clearinput(){
+  //点击按钮清空input框
+  clearinput() {
     this.setState({
-      keydown:''
+      keyword: '',
+      songlist:[]
     })
   }
 
-  toplay(id){
+  //跳转播放页面
+  toplay(id) {
     this.props.history.push(`/play?id=${id}`)
   }
-  
-  render(){
-    const { hotitem , keyword , songlist } = this.state
-    return(
+
+  render() {
+    const { hotitem, keyword, songlist } = this.state
+    return (
       <div>
         <div className="search">
-          <input value={this.state.keyword} onChange={this.change.bind(this)} onKeyDown={this.keydown} type="text" placeholder="搜索歌曲、歌手、专辑"/>
-          <button onClick={this.clearinput.bind(this)} className='clearinput'>X</button>
+          <input value={this.state.keyword} onChange={this.change.bind(this)} onKeyDown={this.keydown} type="text" placeholder="搜索歌曲、歌手、专辑" />
+          { keyword === '' ? '' : <button onClick={this.clearinput.bind(this)} className='clearinput'>x</button> }
         </div>
-        { keyword === '' ? <div className="hotsearch" >
+        {keyword === '' ? <div className="hotsearch" >
           <h2>热门搜索</h2>
           {
-            hotitem.map(item=>{
-              return <span onClick={this.setval.bind(this,item.first)} key={item.first} className='hotlist'>{item.first}</span>
+            hotitem.map(item => {
+              return <span onClick={this.setval.bind(this, item.first)} key={item.first} className='hotlist'>{item.first}</span>
             })
           }
-        </div> : '' }
+        </div> : ''}
         <ul>
           {
-            songlist.map(item=>{
-              return <li onClick={this.toplay.bind(this,item.id)} key={item.id} className='list'>
-              <div className="listcenter">
-                <h3>{item.name}</h3>
-                <p className='listtit'>{item.artists[0].name} - {item.album.name}</p>
+            songlist.map(item => {
+              return <li onClick={this.toplay.bind(this, item.id)} key={item.id} className='list'>
+                <div className="listcenter">
+                  <h3>{item.name}</h3>
+                  <p className='listtit'>{item.artists[0].name} - {item.album.name}</p>
+                </div>
+                <div className="listright">
+                  ++
               </div>
-              <div className="listright">
-                ++
-              </div>
-            </li>
+              </li>
             })
           }
         </ul>

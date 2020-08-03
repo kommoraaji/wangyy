@@ -5,22 +5,22 @@ import Recommend from '../views/recommend'
 import Hotsong from '../views/hotsong'
 import Search from '../views/search'
 
-import { Route , Switch , NavLink , Redirect } from 'react-router-dom'
+import { Route, Switch, NavLink, Redirect } from 'react-router-dom'
 
-class Home extends React.Component{
-  constructor(){
+class Home extends React.Component {
+  constructor() {
     super()
     this.state = {
-      img:require('../../assets/images/logo.jpg')
+      img: require('../../assets/images/logo.jpg')
     }
   }
-  render(){
+  render() {
     const { img } = this.state
-    return(
+    return (
       <div>
         <header>
           <div className='left'>
-            <img className='logo' src={img} alt=""/>
+            <img className='logo' src={img} alt="" />
             <span className='text'>网易云音乐</span>
           </div>
           <div className='down'>
