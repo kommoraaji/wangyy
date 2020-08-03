@@ -27,13 +27,19 @@ class Search extends React.Component{
     this.setState({
       keyword : e.target.value
     })
+    if(e.target.value === ''){
+      this.setState({
+        songlist:[]
+      })
+    }
   }
-  
+
   keydown=(e)=>{
-    console.log(e.keyCode)
-    if(e.keyCode == 13){
+    // console.log(e.keyCode)
+    if(e.keyCode === 13){
+      // console.log(this.state.keyword)
       getsearch({keywords:this.state.keyword}).then(res=>{
-        console.log(res)
+        // console.log(res)
         if(res.data.code === 200){
           this.setState({
             songlist:res.data.result.songs
@@ -48,7 +54,7 @@ class Search extends React.Component{
       keyword : e
     },()=>{
       getsearch({keywords:this.state.keyword}).then(res=>{
-        console.log(res)
+        // console.log(res)
         if(res.data.code === 200){
           this.setState({
             songlist:res.data.result.songs
@@ -58,6 +64,11 @@ class Search extends React.Component{
     })
   }
 
+  clearinput(){
+    this.setState({
+      keydown:''
+    })
+  }
 
   toplay(id){
     this.props.history.push(`/play?id=${id}`)
@@ -69,6 +80,7 @@ class Search extends React.Component{
       <div>
         <div className="search">
           <input value={this.state.keyword} onChange={this.change.bind(this)} onKeyDown={this.keydown} type="text" placeholder="搜索歌曲、歌手、专辑"/>
+          <button onClick={this.clearinput.bind(this)} className='clearinput'>X</button>
         </div>
         { keyword === '' ? <div className="hotsearch" >
           <h2>热门搜索</h2>
@@ -84,7 +96,7 @@ class Search extends React.Component{
               return <li onClick={this.toplay.bind(this,item.id)} key={item.id} className='list'>
               <div className="listcenter">
                 <h3>{item.name}</h3>
-                <span className='listtit'>{item.artists[0].name} - {item.album.name}</span>
+                <p className='listtit'>{item.artists[0].name} - {item.album.name}</p>
               </div>
               <div className="listright">
                 ++

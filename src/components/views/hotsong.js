@@ -14,37 +14,40 @@ class Hotsong extends React.Component{
 
   componentDidMount(){
     hotsong().then(res=>{
-      // console.log(res)
+      console.log(res)
       if(res.data.code === 200){
         this.setState({
-          hotlist:res.data.result
+          hotlist:res.data.playlist.tracks
         })
       }
     })
   }
 
-  toplay(){
-    console.log(this)
-    this.props.history.push('/play')
+  toplay(id){
+    this.props.history.push(`/play?id=${id}`)
   }
   render(){
-    // const { hotlist } = this.state
+    const { hotlist } = this.state
     return(
       <div>
         <div className="notice"></div>
         <ul>
-            <li onClick={this.toplay.bind(this)} className='list'>
-              <div className="listleft">
-                01
-              </div>
-              <div className="listcenter">
-                <h3>爸爸妈妈</h3>
-                <p>李荣浩</p>
-              </div>
-              <div className="listright">
-                ++
-              </div>
-            </li>
+            {
+              hotlist.map((item,i)=>{
+                return  <li onClick={this.toplay.bind(this,item.id)} key={item.id} className='list'>
+                  <div className="listleft">
+                    { i + 1 < 10 ? '0' + ( i + 1 ) : i + 1}
+                  </div>
+                  <div className="listcenter">
+                    <h3>{item.name}</h3>
+                    <p>{item.ar[0].name} - {item.al.name}</p>
+                  </div>
+                  <div className="listright">
+                    ++
+                  </div>
+                </li>
+              })
+            }
         </ul>
       </div>
     )

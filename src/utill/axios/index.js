@@ -14,7 +14,7 @@ export function newsong(){
 
 //热门歌单分类
 export function hotsong(){
-  return http.get('/top/playlist')
+  return http.get('/playlist/detail?id=3778678')
 }
 
 //热门搜索

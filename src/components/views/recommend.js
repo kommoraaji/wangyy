@@ -56,7 +56,14 @@ class Recomment extends React.Component{
             newsongs.map(item=>{
               return <li onClick={this.toplay.bind(this,item.id)} key={item.id} className='list'>
               <div className="listcenter">
-                <h3>{item.name}</h3>
+                <h3>
+                  {item.name}
+                  {
+                    item.song.alias ? item.song.alias.map(item=>{
+                      return <span key={item}>({item})</span>
+                    }):''
+                  }
+                </h3>
                 <span className='listtit'>{item.song.artists[0].name}-{item.song.album.name}</span>
               </div>
               <div className="listright">
